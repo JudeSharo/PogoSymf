@@ -6,13 +6,19 @@
 </head>
 <body>
 	<ul id="navigation"><!--Faire le style du menu et l'insérer dans le template-->
-		<li><a href="/pompe"title="Allez vers la page des pompes">Challenge des chevaliers</a></li>
-		<li><a href="/palmares" title="Palmares du roi">Le palmares du roi</a></li>
+		<li><a href="pompe"title="Allez vers la page des pompes">Challenge des chevaliers</a></li>
+		<li><a href="palmares" title="Palmares du roi">Le palmares du roi</a></li>
+		<li><a href="event/create" title="Event supplémentaire">Ajouter un événement</a></li>
 	</ul>
 	<div id="Evenements"><!--Afficher la table "Event" -->	</div>
 
 	<h1>Le premier titre du roi</h1>
 	<p>Oh grand roi pogo dis nous comment nous comporter</p>
+	{%for event in event%}
+		<h2>{{event.title}}</h2>
+		<p>{{event.description}}</p>
+		<p>{{event.dateEvent|date('Y-m-d')}}</p>
+	{%endfor%}
 	<!-- Ne pas oublier le footer à faire-->
 	
 </body>
