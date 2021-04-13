@@ -38,7 +38,7 @@ class HomeController extends AbstractController
 
     	if($form->isSubmitted() && $form -> isValid())
     	{
-    		$event->setImage("irzoksio");
+    		$event->setImage("pogo4");
 
     		$em ->persist($event);
     		$em->flush();

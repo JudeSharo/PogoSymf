@@ -3,5 +3,12 @@
 	L'event n°{{event.id}}
 {% endblock %}
 {% block body %}
-	<h1>{{event.title}}</h1>
+	<article>	
+		<h1>{{event.title}}</h1>
+		{% if event.image == "pogo4" %}
+			<img src="{{asset('image/pogo4.jpg')}}">
+		{% endif %}
+		<p>{{event.description}}</p>
+	</article>
+
 {% endblock %}

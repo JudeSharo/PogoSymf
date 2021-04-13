@@ -6,12 +6,16 @@
 {% block body %}
 	{% if event|length>0 %}
 		{% for event in event %} <!--Boucle qui affiche tous les events de la BDD -->
-			<h2><a href="{{path('show',{'id':event.id})}}">{{event.title}}</a></h2>
-			<p>{{event.description}}</p>
-			<p>{{event.dateEvent|date('Y-m-d')}}</p>
+			<article>
+				<h2><a href="{{path('show',{'id':event.id})}}">{{event.title}}</a></h2>
+	
+				<p>{{event.description}}</p>
+				<p>{{event.dateEvent|date('Y-m-d')}}</p>
+			</article>
 		{%endfor%}
 	{% else %}
-		<p>Oh grand roi pogo dis nous comment nous comporter</p>
+		<p>Pas d'évênements resensés mais en attendant voici une magnifique image du roi</p>
+		<img src="{{asset('image/pogo1.jpg')}}" id ="img1">
 	{% endif %}
 
 {% endblock %}
