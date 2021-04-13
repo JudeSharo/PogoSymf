@@ -1,26 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>La pogologie</title>
-</head>
-<body>
-	<ul id="navigation"><!--Faire le style du menu et l'insérer dans le template-->
-		<li><a href="pompe"title="Allez vers la page des pompes">Challenge des chevaliers</a></li>
-		<li><a href="palmares" title="Palmares du roi">Le palmares du roi</a></li>
-		<li><a href="{{path('create')}}" title="Event supplémentaire">Ajouter un événement</a></li>
-	</ul>
-	<div id="Evenements"><!--Afficher la table "Event" -->	</div>
+{%extends "base.html.twig"%}
+{% block title %}
+	Home
+{% endblock %}
 
-	<h1>Le premier titre du roi</h1>
-	<p>Oh grand roi pogo dis nous comment nous comporter</p>
-	{%for event in event%}
-		<h2>{{event.title}}</h2>
-		<p>{{event.description}}</p>
-		<p>{{event.dateEvent|date('Y-m-d')}}</p>
-	{%endfor%}
-	<!-- Ne pas oublier le footer à faire-->
-	
-</body>
-</html>
+{% block body %}
+	{% if event|length>0 %}
+		{% for event in event %} <!--Boucle qui affiche tous les events de la BDD -->
+			<h2><a href="{{path('show',{'id':event.id})}}">{{event.title}}</a></h2>
+			<p>{{event.description}}</p>
+			<p>{{event.dateEvent|date('Y-m-d')}}</p>
+		{%endfor%}
+	{% else %}
+		<p>Oh grand roi pogo dis nous comment nous comporter</p>
+	{% endif %}
+
+{% endblock %}

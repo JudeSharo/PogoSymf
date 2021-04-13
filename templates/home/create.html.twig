@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Evenement de Pogo</title>
-</head>
-<body>
+{%extends "base.html.twig"%}
+{% block title %}
+	Create Event
+{% endblock %}
+
+{% block body %}
 	<h1>Ici on créer les événements du grand POGO</h1>
-	{{form(form)}}
-</body>
-</html>
+	{{form_start(form)}}
+		{{form_widget(form)}}
+		<input type="submit" value="Create Pin">
+	{{form_end(form)}}
+
+{% endblock %}

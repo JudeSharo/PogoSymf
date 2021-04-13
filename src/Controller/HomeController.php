@@ -26,11 +26,11 @@ class HomeController extends AbstractController
     #[Route('/event/create', name: 'create')]
     public function create(Request $request,EntityManagerInterface $em)
     {
-    	$form = $this->createFormBuilder()
-    		->add('title')
-    		->add('description',TextareaType::class)
-    		->add('date',DateTimeType::class)
-    		->add('submit',SubmitType::class)
+    	$event = new Event;
+    	$form = $this->createFormBuilder($event)
+    		->add('title',NULL,['attr'=>['autofocus' => true]])
+    		->add('description',TextareaType::class,['attr'=>['rows'=> 10,'cols'=>60]])
+    		->add('dateEvent',DateTimeType::class,['label'=>'Date/time'])
     		->getForm()
     	;
 
@@ -38,22 +38,22 @@ class HomeController extends AbstractController
 
     	if($form->isSubmitted() && $form -> isValid())
     	{
-    		$data = $form -> getData();
-
-    		$event = new Event;
-    		$event->setTitle($data['title']);
-    		$event->setDescription($data['description']);
-    		$event->setDateEvent($data['date']);
     		$event->setImage("irzoksio");
 
     		$em ->persist($event);
     		$em->flush();
 
-    		return $this->redirectToRoute('home');
+    		return $this->redirectToRoute('show',['id'=> $event->getId()]);
     	}
     	return $this->render("home/create.html.twig",['form'=>$form->createView()]);
     }
+    #[Route('/event/{id<[0-9]+>}', name: 'show')]
 
+    public function show(Event $event):Response
+    {
+    	
+    	return $this->render('home/show.html.twig',compact('event'));
+    }
 }
 
 
