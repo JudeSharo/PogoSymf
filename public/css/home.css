@@ -1,6 +1,47 @@
+body{
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+}
+
+article{
+  background-color: black;
+  border-radius:10px;
+}
+article p{
+  color:white;
+}
+body.dark {
+    color: #fff!important;
+    background: #333!important;
+}
+body.dark article{
+  background-color: white;
+
+}
+body.dark article p{
+  color:black;
+}
+.btn-toggle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #333;
+    color: #fff;
+    border: 1px solid #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    cursor: pointer;
+}
 .topnav {
   background-color: #333;
   overflow: hidden;
+  border-radius:10px;
 }
 
 /* Style the links inside the navigation bar */
@@ -25,11 +66,3 @@
   color: white;
 }
 
-body{
-	background-color: black;
-}
-
-article{
-	background-color: white;
-	border-radius:10px;
-}

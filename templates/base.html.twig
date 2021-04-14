@@ -8,10 +8,6 @@
         <link rel="stylesheet" href="{{asset('css/home.css')}}" type="text/css"/>  
         {% block stylesheets %}  
         {% endblock %}
-
-        {% block javascripts %}
-            
-        {% endblock %}
     </head>
     <body>
         <header>
@@ -20,12 +16,16 @@
                 <a href="{{path('create')}}">Create</a>
                 <a href="#contact">Contact</a>
                 <a href="#about">About</a>
+                <div class="btn-toggle">Go Nuit</div>
             </div>    
         </header>
-
-        {% block body %}{% endblock %}
+        {% block body%}{% endblock %}
         <footer>
             <p> Copyright 2021</p>
         </footer>
+
+        <script type="text/javascript" src="{{asset('js/blackmode.js')}}"></script>
+        {% block javascripts %}    
+        {% endblock %}
     </body>
 </html>
