@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/png" sizes="2000x2000" href="{{asset('image/pogo_icone.png')}}">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="stylesheet" href="{{asset('css/home.css')}}" type="text/css"/>  
+        <link rel="stylesheet" href="{{asset('css/base.css')}}" type="text/css"/>  
         {% block stylesheets %}  
         {% endblock %}
     </head>
@@ -16,7 +16,7 @@
                 <a href="{{path('create')}}">Create</a>
                 <a href="#contact">Contact</a>
                 <a href="#about">About</a>
-                <div class="btn-toggle">Go Nuit</div>
+                <input type="radio" name="check" value="Darkmode">
             </div>    
         </header>
         {% block body%}{% endblock %}

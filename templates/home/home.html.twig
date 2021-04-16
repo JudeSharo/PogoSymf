@@ -2,18 +2,23 @@
 {% block title %}
 	Home
 {% endblock %}
-
+{% block stylesheet %}
+	<link rel="stylesheet" type="text/css" href="{{asset('css/home.css')}}">
+{% endblock %}
 {% block body %}
 	<article class ="pogo"></article>
 	{% if event|length>0 %}
-		{% for event in event %} <!--Boucle qui affiche tous les events de la BDD -->
-			<article class="pogo">
-				<h2><a href="{{path('show',{'id':event.id})}}">{{event.title}}</a></h2>
-	
-				<p>{{event.description}}</p>
-				<p>{{event.dateEvent|date('Y-m-d')}}</p>
-			</article>
-		{%endfor%}
+		<div class="container">
+			{% for event in event %} <!--Boucle qui affiche tous les events de la BDD -->
+			<a href="{{path('show',{'id':event.id})}}">
+				<article class="pogo">
+					<h2>{{event.title}}</h2>
+					<p>{{event.description}}</p>
+					<p>{{event.dateEvent|date('Y-m-d')}}</p>
+				</article>
+			</a>
+			{%endfor%}
+		</div>
 	{% else %}
 		<article class="pogo">		
 			<p>Pas d'évênements resensés mais en attendant voici une magnifique image du roi</p>
